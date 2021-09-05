@@ -76,7 +76,7 @@ def make_data(texts: list):
 
 
 def make_tables(data: list):
-    data = [pd.DataFrame.from_dict(text, orient='index', columns=['count', 'tf', 'idf']).head(50).to_html() for text in data]
+    data = [pd.DataFrame.from_dict(text, orient='index', columns=['count', 'tf', 'idf']).head(50).sort_values(by=['idf'], ascending=False).to_html() for text in data]
     return "\n\n".join(data)
 
 
